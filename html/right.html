@@ -1,0 +1,87 @@
+<!DOCTYPE html><html>
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>element-由www.magicalcoder.com可视化布局器生成</title>
+<link href="https://lib.baomitu.com/element-ui/2.10.1/theme-chalk/index.css" rel="stylesheet"/>
+<link href="http://lowcode.magicalcoder.com/magicalcoder/assets/drag/ui/magicalcoder/1.1.0/magicalcoder.css" rel="stylesheet"/>
+<!-- 如果要兼容ie8及以前版本 请打开注释--> <!-- <script src="http://www.magicalcoder.com/assets/ui/element/2.10.1/browser.min.js"></script><script src="http://www.magicalcoder.com/assets/ui/element/2.10.1/browser-polyfill.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.3/json3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.6.0/echarts.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.6.0/extension/dataTool.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script src="https://lib.baomitu.com/element-ui/2.10.1/index.js"></script>
+<script src="http://www.magicalcoder.com/assets/js/common.js"></script>
+<script src="http://lowcode.magicalcoder.com/magicalcoder/assets/drag/ui/magicalcoder/1.1.0/magicalcoder.js"></script>
+<style>
+</style>
+</head>
+<body style="background-image: url(../img/bg_1.jpg);background-repeat: no-repeat;background-size: 100%;">
+<div id="magicalDragScene" class="mc-root mc-ui-absolute-pane"><template>
+	<el-row style="position: static; left: 0%; top: 0%; width: 100%; height: 100%; max-width: 724%; max-height: 2000px;">
+		<el-col id="uuidd22875df-63f7-407f-8591-805d20975f14" style="width: 70%; height: 100%; float: left; position: static;" :xs="12" :sm="12">
+			<iframe id="uuid0240649c-ceb5-46ec-b4be-3455f51be1ee" style="width: 99%; height: 120%; position: static; left: 0%; bottom: 0%;" src="left.html" frameborder="1" scrolling="yes" v-if="true"></iframe>
+		</el-col>
+		<el-col style="width: 30%; height: 100%; float: left; position: static;" :xs="12" :sm="12">
+			<img src="../img/PNG.png" style="width: 200px;"/>
+			<el-input style="top: 40px;" v-model="input" placeholder="请输入疾病、药品等关键词" autosize clearable type="text" prefix-icon="el-icon-share" v-if="true"></el-input>
+			
+			<span class="mc-ui-geometry-char" style="height: 20px; width: 100px; position: absolute; left: 70%; top: 20%; color: rgb(0, 0, 0); text-align: left; font-size: 25px; font-weight: bold;"><img src="../img/logo1.png" style="width: 100px;" />疑似疾病</span>
+			<el-collapse style="position: absolute; left: 70%; top: 40%; width: 27%;">
+				<el-collapse-item name="uuida6d39492-c159-4b58-9d16-d61aff82b00d" title="慢性肠炎"></el-collapse-item>
+				<el-collapse-item name="uuid0b30bf3e-371c-4d27-a3fe-ff64de31b43c" title="克罗恩病"></el-collapse-item>
+				<el-collapse-item id="uuid9d10ec5f-8ffe-4fa4-9308-78d6d64ec434" name="uuid1f8ef25d-3258-460b-982a-42d6a80bbee0" title="急性胃肠炎"></el-collapse-item>
+				<el-collapse-item id="uuid303b38e2-5c47-46a4-bbf2-00f126f02a91" name="uuida9ec6042-3772-4573-a9ff-1d3c06a9d4ea" title="肠易激综合症"></el-collapse-item>
+			</el-collapse>
+			<span id="uuidcd1c78bf-f4a9-4372-a507-dfe0bfba9024" class="mc-ui-geometry-char" style="height: 20px; width: 100px; position: absolute; left: 70%; top: 72%; color: rgb(0, 0, 0); text-align: left; font-size: 25px; font-weight: bold;"><img src="../img/logo1.png" style="width: 100px;" />诊疗方案</span>
+			<el-collapse style="position: absolute; left: 70%; top: 93%; width: 27%;">
+				<el-collapse-item name="uuid83baed42-3009-415e-a7bd-a7f3367e4a4b" title="纤维结肠镜检查"></el-collapse-item>
+				<el-collapse-item name="uuideade494d-6bba-4cc6-97fe-04243954d304" title="内镜检查"></el-collapse-item>
+				<el-collapse-item id="uuid3cfdaeee-badc-4d90-afa1-66ab0fe12880" name="uuiddc53ccae-d220-49e5-9eec-fb1c487a9471" title="气钡双对比造影"></el-collapse-item>
+				<el-collapse-item id="uuidf691c907-b7fb-40ce-9e79-cf12e15c6057" name="uuidc870e94f-0953-4414-ad7c-c72ea25cf17c" title="粪便显微镜检查"></el-collapse-item>
+			</el-collapse>
+			
+		</el-col>
+	</el-row>
+</template>
+</div>
+<script>
+//ajax库采用axios
+//调试:打开浏览器控制台(F12),在代码中某行增加 debugger 即可调试
+var vueData = {tableList : [{}],/*别删我*/
+pageTotal : 100,/*别删我*/
+currentPage : 1,/*别删我*/
+input : "",/*别删我*/
+showDialog : false};
+var vueMethod = {focus : function (e) {try {_t.fastKey.focusElem(e);}catch(e) {}},/*别删我*/
+_tabClick : function(){setTimeout(function(){new McECharts().render();},200)}};
+var vueMounted = function(){}
+/*注意以上代码由系统维护,非专业人士请勿修改*/
+var myMethod = {}
+for (var key in myMethod) {
+    vueMethod[key] = myMethod[key];
+}
+var myMounted = null
+if(myMounted!==null){vueMounted=myMounted;}
+var myData = {}
+/*把您定义的数据覆盖布局器自动识别的变量,考虑到兼容性，请下载查看head中重写的assign方法*/
+Object.assign(vueData, myData);
+var _t = this;
+var Ctor = Vue.extend({
+    //提前绑定的变量
+    data: function() {
+        return vueData;
+    },
+    //页面加载完 会执行方法 可以做一些初始化操作
+    mounted: vueMounted,
+    /*当前页面绑定的方法集合 与布局器节点一一映射即可 参照element ui文档*/
+    methods: vueMethod
+});
+new Ctor().$mount('#magicalDragScene');
+//echarts自动初始化
+new McECharts().render();
+
+</script>
+</body>
+
+</html>

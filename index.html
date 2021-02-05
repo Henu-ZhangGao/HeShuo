@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="shortcut icon" href="../img/henusuo.ico" >
+		<title>河硕医疗平台</title>
+		<style type="text/css">
+			    *{
+			        margin: 0;
+			        padding: 0;
+			    }
+				#bg{
+					background: url(../img/temp.jpg) no-repeat fixed;
+				}
+			      /*去掉li标签默认样式*/
+			   li{
+			       list-style: none;
+			   }
+			     /*最外层盒子样式处理：
+			     1.设置与轮播图高宽一致
+			     2.设置纵向距顶部50px，水平居中
+			     3.设置自己为固定位置
+			     */
+				#nav{
+					position: absolute;
+					top:3%;
+					right:1%;
+				}
+				#nav li{
+					font-size: 20px;
+					font-family: "microsoft yahei";
+					float: left;
+				}
+				#nav li a{
+					text-align: center;
+					margin: 0 20px;
+				}
+				#search {
+				    width: 440px;
+				    height: 40px;
+				    border:none;    /*取消默认的边框以设置自定义边框*/
+				    outline:none;   /*取消浏览器默认的蓝光边框以设置自定义的输入框*/
+				    font-size: 16px;        /*设置提示文字的字体大小*/
+				    color: rgb(112, 112, 112);   /*设置提示文字颜色*/
+				    margin-left: 10px;    /*给输入框与左边放大镜图标10px的间距*/
+				}
+				.searchbar {     
+				    border: rgb(218, 218, 218) solid 1px;
+				    border-radius: 2em;    /*左右边框为半圆*/
+				    width: 552px;
+				    height: 42px;
+				    box-shadow: 0px 0px 3px rgb(212, 212, 212);
+				    margin: 0px 200px 10px;  /*重要！整个搜索框居中对齐*/
+				}
+				#search, .mcp, .mg {
+				    vertical-align: middle;
+					background: none;
+				}
+				.mcp {
+				    height: 35px;
+				}
+				
+				.mg {
+				    height: 25px;
+				    margin-left: 15px;
+				}
+			    .outer{
+			        height: 333px;
+			        width: 500px;
+			        margin: 30px 50px 0 30px;
+					border: 0px;
+			        position:relative;
+					border-radius: 15px;
+					box-shadow: 0px 0px 5px rgb(212, 212, 212);
+			    }
+			      /*轮播图片集合处理:
+			      1.将其设置为脱离文档流
+			      2.设置距顶部和左侧都为0
+			      */
+			    .img li{
+			        position: absolute;
+			        top: 0;
+			        left: 0;
+			    }
+				.img img{
+					width: 500px;
+					height: auto;
+					border-radius: 15px;
+				}
+			      /*顺序按钮区域处理：
+			      1.设置脱离文档流
+			      2.通过设置text-align、width使其整体水平居中
+			      3.设置距离底部20px
+			      */
+			    .num{
+			        position: absolute;
+			        text-align: center;
+			        width: 100%;
+			        bottom: 10px;
+			    }
+			   /*顺序按钮处理:
+			      1.将其设置为行级及块级兼容显示
+			      2.设置其宽高
+			      3.设置背景色及字体颜色
+			      4.设置字体水平居中
+			      5.通过设置line-height与height一致，使其字体纵向居中
+			      6.设置其样式为圆形
+			      7.增加按钮左右间距
+			      */
+			    .num li{
+			        display: inline-block;
+			        width: 15px;
+			        height: 15px;
+			        background-color: darkgray;
+			        color: white;
+			        text-align: center;
+			        line-height: 20px;
+			        border-radius: 50%;
+			        margin: 0 0 0 20px;
+			    }
+			     /*左、右按钮相同部分处理:
+			      1.设置其脱离文档流
+			      2.设置其宽高
+			      3.设置背景色及字体颜色
+			      4.设置字体水平居中
+			      5.通过设置line-height与height一致，使其字体纵向居中
+			      6.通过设置top、margin-top使其整体纵向居中
+			      7.默认不显示
+			      */
+			    .btn{
+			        position: absolute;
+			        width: 20px;
+			        height: 50px;
+			        background-color: #cccccc;
+			        color: #FFFFFF;
+			        text-align: center;
+			        line-height: 50px;
+			        top: 50%;
+			        margin-top: -25px;
+			        display: none;
+					filter:Alpha(opacity=50);
+					opacity: 0.5;
+					animation: mymove 1s 1;
+			    }
+				@keyframes mymove {
+				    from{
+						opacity: 0;
+					}
+					to{
+						opacity: 0.5;
+					}
+				}
+			      /*左侧按钮处理:
+			      设置左侧为0
+			      */
+			    .left_btn{
+			        left: 0;
+			    }
+			     /*右侧按钮处理:
+			      设置右侧为0
+			      */
+			    .right_btn{
+			        right: 0;
+			    }
+			     /*鼠标悬浮至轮播图区域时左、右按钮处理:
+			      1.设置左右按钮显示样式为行级块级兼容
+			      2.设置鼠标放置在左右按钮时样式为小手
+			      */
+			    .outer:hover .btn{
+			        display: inline-block;
+			        cursor: pointer;
+			    }
+			     /*设置顺序按钮初始按钮样式:
+			      设置为红色（由于样式级别问题会导致设置无效，可通过两种方式解决：
+			      1.后面加上!important
+			      2.将css定位写详细，比如：.outer .num .current{……
+			      ）
+			      */
+			    .current{
+			        background-color: #33C0DF!important;
+			    }
+				#user{
+					width: 100%;
+					height: 1000px;
+					background-image:url() ;
+					font-family: "microsoft yahei";
+					font-size: 28px;
+					font-weight: bold;
+					color: #55aaff;
+					line-height: 30px;
+					text-shadow: 0 0 5px #000000;
+					margin-top: 20px;
+				}
+				#user div{
+					width:300px;
+					padding:10px 100px;
+					margin: 10px 30px;
+					float: left;
+					text-align: center;
+				}
+				.ban{
+					border-bottom: 0.5px solid #00007f;
+					background-color: white;
+					border-radius: 20px;
+					opacity: 0.75;
+				}
+				.ban a{
+					text-decoration:none;
+					cursor:pointer;
+				}
+				.ban a:visited{
+					color: #55aaff;
+				}
+				.content{
+					background-color: white;
+					box-shadow: 0 0 7px #000000 !important;
+					width: 300px;
+					height: 500px;
+					opacity: 0.75;
+					border-radius: 10px;
+				}
+				#div_1 div,#div_2 div{
+					margin:10px 0;
+					padding:20px 0;
+				}
+				#div_1 input,#div_2 input{
+					margin-right: 20px;
+				}
+				#bottem{
+					width: 100%;
+					background-color: white;
+					box-shadow: 1px 1px 5px #000000;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+				#bottem div{
+					margin-bottom: 5px;
+				}
+				#bottem img{
+					width:100px;
+					margin-top: 5px;
+					margin-right: 10px;
+				}
+				#bottem a{
+					text-decoration:none;
+				}
+				#bottem a:visited{
+					color: #000000;
+				}
+		</style>
+	</head>
+	<body id="bg">
+		<div>
+		<div style="background-color: white; padding: 20px 0 10px 0;box-shadow: 0 0 10px #000000;">
+		<div style="float: left; margin-left:10px;">
+			<img style="padding:5px; height: 35px;box-shadow: 1px 0.5px 6px rgb(212, 212, 212);" src="../img/PNG.png" />
+		</div>
+		<div class="searchbar">
+		        <img src="../img/u=1296441920,4275888275&fm=26&gp=0.png" class="mg">
+		        <input type="text" id="search" value="请输入你想要寻找的关键字" 
+		        onfocus="if(value=='请输入你想要寻找的关键字')value=''"
+		        onblur="if(!value)value='请输入你想要寻找的关键字'" name="keyword" >
+		        <img src="../img/u=1213093656,3180818559&fm=15&gp=0.png" class="mcp">
+				<div id="nav">
+					<ul>
+						<li><a>注册</a></li>
+						<li><a>登录</a></li>
+						<li><a>联系我们</a></li>
+						<li style="font-weight: 300;">制作者:长高</li>
+						<li><a>联系方式:QQ2320404851</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="outer">
+		    <ul class="img">
+		        <li><a><img src="../img/微信图片_202010181741031.jpg"></a></li>
+		        <li><a><img src="../img/微信图片_202010181741032.jpg"></a></li>
+		    </ul>
+		    <ul class="num">
+		        <li class="current"></li>
+		        <li></li>
+		    </ul>
+		        <div class="left_btn btn"><</div>
+		        <div class="right_btn btn">></div>
+		    </div>
+			<div style="float: right; position: absolute;top: 15%;left: 35%;">
+				<img style="width:1000px;" src="../img/chara.png"/>
+			</div>
+			<div id="user">
+				<div>
+					<div class="ban">
+					<a href="#">用户输入</a>
+					</div>
+					<div class="content">
+						<form id="div_1">
+							<div><input type="checkbox" />病名1</div>
+							<div><input type="checkbox" />病名2</div>
+							<div><input type="checkbox" />病名3</div>
+							<div><input type="checkbox" />病名4</div>
+							<div><input type="checkbox" />病名5</div>
+						</form>
+					</div>
+				</div>
+				<div>
+					<div class="ban">
+					<a href="#">查询数据</a>
+					</div>
+					<div class="content">
+						<form id="div_2">
+							<div><input type="checkbox" />方案名1</div>
+							<div><input type="checkbox" />方案名2</div>
+							<div><input type="checkbox" />方案名3</div>
+							<div><input type="checkbox" />方案名4</div>
+							<div><input type="checkbox" />方案名5</div>
+						</form>
+					</div>
+				</div>
+				<div>
+					<div class="ban">
+					<a href="#">数据输出</a>
+				</div>
+					<div class="content">
+						<form id="div_3">
+							<input type="text" value="输出结果为"/>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div id="bottem">
+				<div>
+				<img src="../img/PNG.png"/>备案号:
+				<a href="https://beian.miit.gov.cn/" target="_blank">待填</a>
+				</div>
+			</div>
+			</div>
+			<script src="../js/jquery-3.5.1.js"></script>
+			<script>
+			     /*定义位置：由于图片个数与下侧顺序按钮数量一致，可通过位置进行关联*/
+			    var index=0;
+			     /*当鼠标放到顺序按钮上时：
+			     1.将当前这个顺序按钮增加样式为红色背景
+			     2.移除周围其他同级元素红色背景样式
+			     3.获取当前顺序按钮的index
+			     4.通过index获取该位置图片
+			     5.一秒钟渐入该图片
+			     6.一秒钟渐出其他相邻图片
+			     7.防止移动过快导致的效果闪现，使用stop方法
+			     */
+			    $(".num li").mousemove(function () {
+			            $(this).addClass("current").siblings().removeClass("current");
+			            index=$(this).index();
+			            $(".img li").eq(index).stop().fadeIn(2000).siblings().stop().fadeOut(2000);
+			    });
+			     /*设置每一秒钟自动轮播：
+			     1.获取当前位置序号：自加操作；当超过图片最大序号时序号设置为0
+			     2.设置下侧顺序按钮及轮播图显示
+			     */
+			    var time=setInterval(move,2000);
+			    function move() {
+			        index++;
+			        if (index==2){//设置位置
+			            index=0
+			        }
+			        $(".num li").eq(index).addClass("current").siblings().removeClass("current");
+			        $(".img li").eq(index).stop().fadeIn(2000).siblings().stop().fadeOut(2000);
+			    };
+			    /*当鼠标划入、划出轮播图区域时：
+			    1.划入时停止自动轮播
+			    2.划出时继续自动轮播
+			    */
+			    $(".outer").hover(function () {
+			        clearInterval(time);
+			    },
+			    function () {
+			        time=setInterval(move,2000);
+			    });
+			     /*点击右侧按钮时执行*/
+			    $(".right_btn").click(function () {
+			       move();
+			    });
+			     /*点击左侧按钮时执行*/
+			    function moveL() {
+			         index--;
+			        if (index==-1){
+			            index=1//设置最终位置-1
+			        }
+			        $(".num li").eq(index).addClass("current").siblings().removeClass("current");
+			        $(".img li").eq(index).stop().fadeIn(2000).siblings().stop().fadeOut(2000);
+			    }
+			    $(".left_btn").click(function () {
+			        moveL();
+			    });
+			</script>
+	</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html><html>
+<!--代码由www.magicalcoder.com可视化布局器拖拽生成 资源请自行下载到本地-->
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>element-由www.magicalcoder.com可视化布局器生成</title>
+<link href="https://lib.baomitu.com/element-ui/2.10.1/theme-chalk/index.css" rel="stylesheet"/>
+<link href="http://lowcode.magicalcoder.com/magicalcoder/assets/drag/ui/magicalcoder/1.1.0/magicalcoder.css" rel="stylesheet"/>
+<!-- 如果要兼容ie8及以前版本 请打开注释--> <!-- <script src="http://www.magicalcoder.com/assets/ui/element/2.10.1/browser.min.js"></script><script src="http://www.magicalcoder.com/assets/ui/element/2.10.1/browser-polyfill.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.3/json3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.6.0/echarts.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.6.0/extension/dataTool.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script src="https://lib.baomitu.com/element-ui/2.10.1/index.js"></script>
+<script src="http://www.magicalcoder.com/assets/js/common.js"></script>
+<script src="http://lowcode.magicalcoder.com/magicalcoder/assets/drag/ui/magicalcoder/1.1.0/magicalcoder.js"></script>
+<style>
+
+</style>
+
+</head>
+<body style="">
+<div id="magicalDragScene" class="mc-root"><template>
+	<el-row>
+		<el-col :xs="24">
+			<el-button style="float: right; position: static; margin-right: 5px; margin-left: 5px;">关闭</el-button>
+			<el-button style="float: right; position: static; margin-left: 5px; margin-right: 5px;">保存</el-button>
+			<el-button style="float: right; position: static; margin-right: 5px;">发送</el-button>
+		</el-col>
+		<el-col id="uuide74b8b2f-eca1-41fd-88fb-6ab7298923e8" :xs="24">
+			<img src="../img/logo4.png" style="width: 50px;" />
+			<span class="mc-ui-geometry-char" style="height: 20px; width: 100px; font-size: 25px; font-weight: bold;">基本信息</span>
+			<el-row :gutter="10">
+				<el-col id="uuidab8a2ad0-8ef5-4bfa-8112-a495905c470a" class="mc-ui-flex-center" style="margin-left: 0px; margin-bottom: 10px; margin-top: 10px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">主治医师:</span>
+					<el-input style="width: 70%;" v-model="input" placeholder="请输入内容"></el-input>
+				</el-col>
+				<el-col id="uuid659103af-4c6a-4f6e-84dc-856c921f95e7" class="mc-ui-flex-center" style="margin-left: 0px; margin-bottom: 10px; margin-top: 10px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height: 20px; width: 105px;">门诊号/住院号:</span>
+					<el-input id="uuidc50383dc-b433-40ae-8bdb-0b1f0e7a5c60" style="width: 70%;" v-model="input" placeholder="请输入内容"></el-input>
+				</el-col>
+				<el-col id="uuid0d848fb7-f98b-4640-befd-acb2216c534f" class="mc-ui-flex-center" style="margin-left: 0px; margin-bottom: 10px; margin-top: 10px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">患者ID:</span>
+					<el-input id="uuid5b33f856-21e7-49cf-9f58-039f97c8a4b0" style="width: 70%;" v-model="input" placeholder="请输入内容"></el-input>
+				</el-col>
+				<el-col id="uuide9e2857e-7c57-4d6b-89e8-57b7cb9dfc63" class="mc-ui-flex-center" style="margin-left: 0px; margin-bottom: 10px; margin-top: 10px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">姓名:</span>
+					<el-input id="uuid7d5d826f-5d8d-4939-91de-238e932b454d" style="width: 70%;" v-model="input" placeholder="请输入内容"></el-input>
+				</el-col>
+				<el-col id="uuidc8823b66-c121-4628-911f-f9f17fa382e8" class="mc-ui-flex-center" style="margin-left: 0px; margin-bottom: 10px; margin-top: 10px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">科室:</span>
+					<el-input id="uuide51ed3f0-8f47-4842-b7ca-6ad353b87e7e" style="width: 70%;" v-model="input" placeholder="请输入内容"></el-input>
+				</el-col>
+				<el-col id="uuid6c9482fd-37f0-4b7b-b8ef-14d6607fda36" class="mc-ui-flex-center" style="margin-left: 0px; margin-bottom: 10px; margin-top: 10px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">诊疗类型:</span>
+					<el-select v-model="select" @focus="focus">
+						<el-option label="门诊" value="1"></el-option>
+						<el-option id="uuida40cf713-997f-4fda-b603-a911caf01e89" label="选择1" value="uuiddb9c636b-0b2a-4aad-8ee3-04f85c036de9"></el-option>
+					</el-select>
+				</el-col>
+				<el-col id="uuiddf96d909-7deb-4095-b189-9998ff72318c" class="mc-ui-flex-center" style="margin-left: 0px; margin-bottom: 10px; margin-top: 10px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">年龄:</span>
+					<el-input id="uuidbca581a7-9795-4134-b337-3aa2b04fabfb" style="width: 70%;" v-model="input" placeholder="请输入内容"></el-input>
+				</el-col>
+				<el-col id="uuid71add2db-de98-47c7-9003-8cd8e61a8c10" class="mc-ui-flex-center" style="margin-left: 0px; margin-bottom: 10px; margin-top: 10px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">性别:</span>
+					<el-select v-model="select" @focus="focus">
+						<el-option id="uuida4ac98b8-0890-42f6-8a8e-9938a85a9d71" label="男" value="uuid5de07d53-d3ae-4983-bba3-99b967094468"></el-option>
+						<el-option id="uuid379a47f2-4b9e-4b65-aed8-5bae30df3dc5" label="女" value="uuid7337a969-a757-410f-bf7b-7eae9ac16b22"></el-option>
+					</el-select>
+				</el-col>
+			</el-row>
+			<el-form-item label="多选">
+				<el-checkbox-group v-model="checkboxGroup">
+					<el-checkbox label="1">多选项</el-checkbox>
+				</el-checkbox-group>
+			</el-form-item>
+		</el-col>
+		<el-col id="uuidbbb1408e-7437-40f2-a45d-812efc22dc73" :xs="24">
+			<img src="../img/logo1.png" style="width: 50px;" />
+			<span class="mc-ui-geometry-char" style="height: 20px; width: 100px; font-size: 25px; font-weight: bold;">门诊/入院记录</span>
+			<el-row id="uuiddbcf8aa7-6f58-4455-a128-417e9c002ed3" :gutter="0">
+				<el-col id="uuid3976549f-b1ec-4969-b69e-a48e6f7ba6d9" class="mc-ui-flex-center" style="margin: 10px 0px; border-left-width: 0px; width: 70%;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">主诉:</span>
+					<el-input id="uuid6c566b03-781d-429a-873a-2dee53269746" style="width: 79%;" v-model="input" placeholder="请输入内容"></el-input>
+				</el-col>
+				<el-col id="uuida9926c9c-86d5-4527-941d-befbbee04287" class="mc-ui-flex-center" style="margin: 10px 0px; border-left-width: 0px; width: 20%;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">病历类型:</span>
+					<el-select v-model="select" @focus="focus">
+						<el-option label="门诊记录" value="1"></el-option>
+					</el-select>
+				</el-col>
+				<el-col id="uuid9b161725-b791-4e37-936e-8127bc9cb260" class="mc-ui-flex-center" style="margin: 10px 0px; border-left-width: 0px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">现病史:</span>
+					<el-input id="uuidf15fe64e-e4f7-4f02-a5f6-e5b7a0ecbe99" style="width: 70%;" v-model="input" placeholder="请输入内容"></el-input>
+				</el-col>
+				<el-col id="uuid4d263417-9ea6-4a6f-90ef-74ff7a086173" class="mc-ui-flex-center" style="margin: 10px 0px; border-left-width: 0px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">既往史:</span>
+					<el-input id="uuid98ad0dcc-fb16-42a0-b3a3-d14f6c4f6986" style="width: 70%;" v-model="input" placeholder="请输入内容"></el-input>
+				</el-col>
+				<el-col id="uuidcaee71c1-ee5c-445c-a0ff-989b890441f2" class="mc-ui-flex-center" style="margin: 10px 0px; border-left-width: 0px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">个人史:</span>
+					<el-input id="uuid8bd98ef0-cd78-4d26-8cd4-ab07aa8dd328" style="width: 70%;" v-model="input" placeholder="请输入内容"></el-input>
+				</el-col>
+				<el-col id="uuida5221521-a940-427a-932e-cc349dcba153" class="mc-ui-flex-center" style="margin: 10px 0px; border-left-width: 0px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">婚育史:</span>
+					<el-input id="uuid2f59587e-2512-44d1-b3f7-89949811b518" style="width: 70%;" v-model="input" placeholder="请输入内容"></el-input>
+				</el-col>
+				<el-col id="uuid62fdc101-0ed3-4729-a195-0be733254a96" class="mc-ui-flex-center" style="margin: 10px 0px; border-left-width: 0px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">家庭史:</span>
+					<el-input id="uuid856acad3-089e-409c-b281-f70e6b467bdd" style="width: 70%;" v-model="input" placeholder="请输入内容"></el-input>
+				</el-col>
+				<el-col id="uuid41fe3fbe-7c94-4a0c-ba65-1d05febab9b2" class="mc-ui-flex-center" style="margin: 10px 0px; border-left-width: 0px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">过敏史:</span>
+					<el-input id="uuid0521b0f8-b3f4-4589-bdc2-ad6edf5b2749" style="width: 70%;" v-model="input" placeholder="请输入内容"></el-input>
+				</el-col>
+				<el-col id="uuidfa2f3f86-e252-4358-a46f-506fdca067c2" class="mc-ui-flex-center" style="margin: 10px 0px; border-left-width: 0px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">月经史:</span>
+					<el-input id="uuid175c331d-bcee-43c9-850d-cdd2ab2903f2" style="width: 70%;" v-model="input" placeholder="请输入内容"></el-input>
+				</el-col>
+				<el-col id="uuid4e6738c9-45d1-4d88-b248-21e8da1284c2" class="mc-ui-flex-center" style="margin: 10px 0px; border-left-width: 0px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">初步检查:</span>
+					<el-input id="uuide37c47c7-7354-426c-8165-6885df0434f4" style="width: 70%;" v-model="input" placeholder="请输入内容"></el-input>
+				</el-col>
+				<el-col id="uuid2f4e448c-0192-4b5b-9640-5df609968ce9" class="mc-ui-flex-center" style="margin: 10px 0px; border-left-width: 0px;" :xs="24" :md="12" :xl="0">
+					<span class="mc-ui-geometry-char" style="height:20px;width:100px;">辅助检查:</span>
+					<el-input id="uuid902e046d-96a4-4272-b4a5-934f3e4ae4f4" style="width: 70%;" v-model="input" placeholder="请输入内容"></el-input>
+				</el-col>
+			</el-row>
+		</el-col>
+		<el-col id="uuid3b0915e8-d967-4baf-8699-0cd724d072b2" :xs="24">
+			<img src="../img/logo2.png" style="width: 50px;" />
+			<span class="mc-ui-geometry-char" style="height: 20px; width: 100px; font-size: 25px; font-weight: bold;">诊断</span>
+			<el-row>
+				<el-col style="width: 80%;" :xs="12" :sm="12">
+					<table class="mc-table">
+						<thead>
+							<tr>
+								<th>诊断类型</th>
+								<th>诊断结果</th>
+								<th>主要判断</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>初步判断</td>
+								<td>溃疡性结肠炎</td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</el-col>
+				<el-col style="width: 20%;" :xs="12" :sm="12">
+					<el-button style="margin-left: 15px;">增加</el-button>
+					<el-button>删除</el-button>
+				</el-col>
+			</el-row>
+		</el-col>
+		<el-col id="uuide72a28a6-2955-4de3-984c-28196b7a51bc" :xs="24">
+			<span class="mc-ui-geometry-char" style="height: 20px; width: 100px; font-size: 25px; font-weight: bold;">医嘱</span>
+			<el-row id="uuid6f7a31a9-e278-49ee-babb-7d2f0948f3e8">
+				<el-col style="width: 80%;" :xs="12" :sm="12">
+					<table class="mc-table">
+						<thead>
+							<tr>
+								<th>医嘱类型</th>
+								<th>医嘱项</th>
+								<th>服药途径</th>
+								<th id="uuid347c30a0-c2e7-4ca5-b5ee-46e48f77cc61">单次剂量</th>
+								<th id="uuidf6f0b865-dd9a-4fce-8a89-04317c7382c7">剂量单位</th>
+								<th id="uuidcce97767-016c-44e7-bc16-b02ab42d47f9">总剂量</th>
+								<th id="uuid66beecb3-2d47-4fde-861f-6541e0727b5e">服药频率</th>
+								<th id="uuida20dd78f-4905-46c8-84eb-d5c631adee8d">输液单号</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</el-col>
+				<el-col style="width: 20%;" :xs="12" :sm="12">
+					<el-button style="margin-left: 15px;">增加</el-button>
+					<el-button>删除</el-button>
+				</el-col>
+			</el-row>
+		</el-col>
+	</el-row>
+</template></div>
+<script>
+//ajax库采用axios
+//调试:打开浏览器控制台(F12),在代码中某行增加 debugger 即可调试
+var vueData = {radioGroup : "",/*别删我*/
+checkboxGroup : [],/*别删我*/
+input : "",/*别删我*/
+tableList : [{}],/*别删我*/
+pageTotal : 100,/*别删我*/
+currentPage : 1,/*别删我*/
+inputNumber : 0,/*别删我*/
+select : "",/*别删我*/
+slider : 0};
+var vueMethod = {focus : function (e) {try {_t.fastKey.focusElem(e);}catch(e) {}},/*别删我*/
+_tabClick : function(){setTimeout(function(){new McECharts().render();},200)}};
+var vueMounted = function(){}
+/*注意以上代码由系统维护,非专业人士请勿修改*/
+var myMethod = {}
+for (var key in myMethod) {
+    vueMethod[key] = myMethod[key];
+}
+var myMounted = null
+if(myMounted!==null){vueMounted=myMounted;}
+var myData = {}
+/*把您定义的数据覆盖布局器自动识别的变量,考虑到兼容性，请下载查看head中重写的assign方法*/
+Object.assign(vueData, myData);
+var _t = this;
+var Ctor = Vue.extend({
+    //提前绑定的变量
+    data: function() {
+        return vueData;
+    },
+    //页面加载完 会执行方法 可以做一些初始化操作
+    mounted: vueMounted,
+    /*当前页面绑定的方法集合 与布局器节点一一映射即可 参照element ui文档*/
+    methods: vueMethod
+});
+new Ctor().$mount('#magicalDragScene');
+//echarts自动初始化
+new McECharts().render();
+
+</script>
+</body>
+
+</html>
